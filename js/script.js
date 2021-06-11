@@ -23,7 +23,7 @@ var textHtml = document.getElementById('txt');
 
 
 //* effettuo il countdown di 30 sec
-var time = 5;
+var time = 30;
 var countDown = setInterval(function(){
     textHtml.innerHTML = 'Tempo rimanente = ' + time;
     if(!time){
