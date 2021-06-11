@@ -25,12 +25,12 @@ var textHtml = document.getElementById('txt');
 //* effettuo il countdown di 30 sec
 var time = 5;
 var countDown = setInterval(function(){
+    textHtml.innerHTML = 'Tempo rimanente = ' + time;
     if(!time){
         //* resetto il countdown e richiamo la funzione di gioco
         clearInterval(countDown);
         game();
     }
-    textHtml.innerHTML = 'Tempo rimanente = ' + time;
     time--;
 }, 1000);
 
