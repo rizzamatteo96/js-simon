@@ -18,12 +18,17 @@ while (arrayRndNum.length < quantityNum){
 }
 alert('Questi sono i numeri che ti devi ricordare: ' + arrayRndNum);
 
+//* creo la variabile di appoggio per il collegamento al file HTML
+var textHtml = document.getElementById('txt');
 
+
+//* effettuo il countdown di 30 sec
 var time = 30;
 var countDown = setInterval(function(){
-    console.log(time);
+    textHtml.innerHTML = 'Tempo rimanente = ' + time;
     time--;
     if(!time){
+        //* resetto il countdown e richiamo la funzione di gioco
         clearInterval(countDown);
         game();
     }
@@ -55,8 +60,10 @@ function game(){
 }
 
 function result(arrayWin){
+    textHtml.innerHTML = ('Sei riuscito a trovare ' + arrayWin.length + ' numeri su ' + quantityNum);
+    textHtml.innerHTML += ('<br>I numeri da te trovati sono i seguenti: ' + arrayWin);
 
-    console.log('Sei riuscito a trovare ' + arrayWin.length + ' numeri su ' + quantityNum);
-    console.log('I numeri da te trovati sono i seguenti: ' + arrayWin);
-
+    if(arrayWin.length == quantityNum){
+        alert('HAI VINTO!!!!!');
+    }
 }
