@@ -43,6 +43,7 @@ function rndNum(min, max) {
 function game(){
     var tentativi = quantityNum;
     var numeriUser = [];
+    var numeriCorrect = [];
     for(var i = tentativi; i > 0; i--){
         var numCheck = parseInt(prompt('Inserisci uno alla volta i numeri che ricordi: tentativi rimasti = ' + i));
         if(numeriUser.includes(numCheck)){
@@ -51,12 +52,15 @@ function game(){
         else if(isNaN(numCheck)){
             alert('Attenzione: il valore inserito NON è un numero. Hai perso un tentativo!');
         }
-        else if(arrayRndNum.includes(numCheck)){
+        else{
             numeriUser.push(numCheck);
+            if(arrayRndNum.includes(numCheck)){
+                numeriCorrect.push(numCheck);
+            }
         }
     }
 
-    result(numeriUser);
+    result(numeriCorrect);
 }
 
 function result(arrayWin){
